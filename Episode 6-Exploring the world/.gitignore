@@ -1,0 +1,6 @@
+node_modules
+images
+.cache
+dist
+.parcel-cache
+swiggy api link https.txt
