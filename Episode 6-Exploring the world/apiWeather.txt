@@ -1,0 +1,2 @@
+apikey=e8fd593f313cf718756bd6e7e94ccea8;
+api for lat and long=http://api.openweathermap.org/geo/1.0/direct?q=jodhpur&limit=1&appid=e8fd593f313cf718756bd6e7e94ccea8

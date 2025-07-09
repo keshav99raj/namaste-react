@@ -5,13 +5,20 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { URL_IMG } from "../../utils/constant";
 
 const RestaurentCard = (props) => {
+  // console.log("this is Props:",props.info);
   const {resData}=props;
-  const {cloudinaryImageId,name,avgRating,deliveryTime,cuisines,costForTwo}=resData?.data;
+  // console.log("this is info",resData.info);
+  
+  // const {cloudinaryImageId,name,avgRating,deliveryTime,cuisines,costForTwo}=resData?.data;
+ const {name,cloudinaryImageId,avgRating,costForTwo,cuisines,sla}=resData?.info;
+ console.log(name);
+
+
 
   return (
 
     <div className="res-card">
-    
+
       <div className="res-logo">
         <img className="res-logo"alt="res-logo" src={URL_IMG+cloudinaryImageId} />
       </div>
@@ -23,20 +30,20 @@ const RestaurentCard = (props) => {
           <div className="rat-time">
             <p><FontAwesomeIcon icon={faStar} style={{color: "#26a269",}} /></p>
             <p>{avgRating}</p>
-            <p>{deliveryTime} minutes</p>            
+            <p>{sla.slaString} minutes</p>            
          </div>
          <div className="quizine">
             <p>{cuisines.join(", ")}</p>
          </div>
          <div className="grp-cost">
-            <p>{"₹ "+ costForTwo/100 +" for two"}</p>
+            <p>{costForTwo}</p>
          </div>
          
              
       </div>
 
 
-      <div/>
+      <div/> 
 
     </div>
 

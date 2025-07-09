@@ -1,12 +1,14 @@
 import RestaurentCard from "./RestaurentCard";
 import { useState ,useEffect} from "react";;
-
+import Shimmer from "./Shimmer";
 
 import restaurantList from "../../utils/restarr";
 import react from "react";
 const Body = () => {
 
 const [restList,setRestList]=useState([]);
+const [filterList,setFilterList]=useState([]);
+const [searchText,setSearchText]=useState("");
 
 useEffect(()=>{
   fetchData();
@@ -21,29 +23,56 @@ const fetchData=async()=>{
   const json=await data.json();
   const arr= await json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
 console.log(arr);
+setFilterList(arr);
 setRestList(arr);
     }
 
 
-  return (
+
+
+
+ return restList.length==0?<Shimmer/>: (
     <div className="body">
-      <div className="btn-filter">
+      
+      <div className="search-filter">
+          <div className="searchbtn">
+              <input htmlFor="btn"  value={searchText} onChange={(e)=>{
+                const data=e.target.value;
+                setSearchText(data);
+
+              }}/>
+              <button className="search-btn" id="btn" 
+              onClick={()=>
+              {
+                    const newList=restList.filter((rest)=>{
+                      return  (rest.info.name.toLowerCase()).includes(searchText.toLowerCase());
+                    })
+                    setFilterList(newList);
+              }}
+              >search</button>
+          </div>
+          <div className="btn-filter">
         <div className="top-res" onClick={()=>{
 
-          const newList=restaurantList.filter(
+          const newList=restList.filter(
             (rest)=>{
-            return Number(rest.data.avgRating)>4;
+              // console.log(rest);
+            return Number(rest.info.avgRating)>4;
                 })
-                setRestList(newList);
+                setFilterList(newList);
         }}>Top Restaurent</div>
       </div>
+
+      </div>
+
       
       <div className="res-container">
         {/* <RestaurentCard resData={restaurantList[0]} /> */}
         {
-          restList.map((restaurant)=>{
+          filterList.map((restaurant)=>{
               return (
-                <RestaurentCard key={restaurant.data.id} resData={restaurant}/>
+
+                <RestaurentCard key={restaurant.info.id} resData={restaurant}/>
               )
           })
         }
