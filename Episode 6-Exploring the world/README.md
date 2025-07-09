@@ -11,8 +11,8 @@ I'm a full stack developer...
 
 
 ## Learnings
-- I came to know that each`component`should be in  seprate file.
-- I learn about `import ` and `export` working.
-- Learn about how to optmized code .
--Add `filter` component using `useState` hook
+- Learn about how to fetch data from `live api`.
+- more indepth  knowledge about `useState hook`
+-learn about `shimmer ui` .
+
 
