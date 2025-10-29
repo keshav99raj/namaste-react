@@ -1,0 +1,31 @@
+/* .content{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    
+
+
+
+} */
+
+.main{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    
+
+}
+.desc{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+.img-btn img{
+    /* width:150px;
+    height:170px; */
+    object-fit:contain ;
+}
+

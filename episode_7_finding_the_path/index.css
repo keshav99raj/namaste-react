@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
+  margin-bottom:10px;
 }
 .logo > img {
   width: 100px;
@@ -17,6 +18,9 @@
 .nav-items > ul > li {
   padding: 10px;
   margin: 10px;
+}
+.res-container{
+  margin-top:10px;
 }
 .res-card {
   display: flex;
@@ -110,3 +114,28 @@
     display:flex;
     justify-content: center;
 } */
+
+
+.top-res{
+  display:inline;
+    margin:10px;
+    border:2px solid black;
+    border-radius: 15px;
+    background-color: rgb(146, 121, 121);
+}
+
+.top-res:hover{
+  cursor: pointer;
+  background-color: beige;
+}
+
+.search-filter{
+  display:flex;
+}
+
+.main{
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  gap:10px;
+}
